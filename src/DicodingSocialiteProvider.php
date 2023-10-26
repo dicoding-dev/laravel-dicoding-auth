@@ -36,8 +36,11 @@ class DicodingSocialiteProvider extends AbstractProvider
     protected function mapUserToObject(array $user): DicodingUser
     {
         return (new DicodingUser($user['data']))->map([
+            'id' => $user['data']['id'],
+            'email' => $user['data']['email'],
+            'name' => $user['data']['full_name'],
             'nickname' => $user['data']['username'],
-            'isVerified' => (bool) $user['data']['verified_user'],
+            'isVerified' => (bool) $user['data']['is_verified_user'],
             'avatar' => $user['data']['avatar_url'],
         ]);
     }
