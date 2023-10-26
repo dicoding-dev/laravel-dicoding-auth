@@ -23,7 +23,7 @@ class DicodingSocialiteProvider extends AbstractProvider
 
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get($this->getDicodingUrl() . '/oauth/me', [
+        $response = $this->getHttpClient()->get($this->getDicodingUrl() . '/api/v1/oauth/me', [
             'headers' => [
                 'cache-control' => 'no-cache',
                 'Authorization' => 'Bearer ' . $token,
