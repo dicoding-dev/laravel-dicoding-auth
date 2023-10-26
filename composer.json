@@ -1,0 +1,20 @@
+{
+    "name": "dicoding-dev/laravel-dicoding-auth",
+    "description": "Auth mechanism for campaign sites managed by Dicoding",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rizqy H.",
+            "email": "rizqy@dicoding.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "laravel/socialite": "^5.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "DicodingDev\\LaravelDicodingAuth\\": "src/"
+        }
+    }
+}
