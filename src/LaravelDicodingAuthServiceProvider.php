@@ -2,10 +2,10 @@
 
 namespace DicodingDev\LaravelDicodingAuth;
 
-use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
+use Illuminate\Support\ServiceProvider;
 use Laravel\Socialite\Contracts\Factory;
 
-class ServiceProvider extends LaravelServiceProvider
+class LaravelDicodingAuthServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {

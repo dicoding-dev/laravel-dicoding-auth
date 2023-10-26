@@ -16,5 +16,12 @@
         "psr-4": {
             "DicodingDev\\LaravelDicodingAuth\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DicodingDev\\LaravelDicodingAuth\\LaravelDicodingAuthServiceProvider"
+            ]
+        }
     }
 }
