@@ -26,7 +26,7 @@ class AuthenticatedUser implements Authenticatable
             name: $user->getName(),
             nickname: $user->getNickname(),
             avatar: $user->getAvatar(),
-            isVerified: $user['isVerified'],
+            isVerified: $user->isVerified ?? false,
             token: $user->token,
         );
     }
