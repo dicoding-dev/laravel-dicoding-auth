@@ -14,7 +14,7 @@ trait OAuthCallbackHandler
     public function handle()
     {
         try {
-            $this->setUserAsAuthed(Socialite::driver('slack')->user());
+            $this->setUserAsAuthed(Socialite::driver('dicoding')->user());
 
             return $this->handleSuccessfulAuth();
         } catch (Exception $exception) {
