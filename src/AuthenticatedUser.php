@@ -2,6 +2,7 @@
 
 namespace DicodingDev\LaravelDicodingAuth;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Laravel\Socialite\Contracts\User;
 
@@ -15,6 +16,7 @@ class AuthenticatedUser implements Authenticatable
         public readonly string $avatar,
         public readonly bool $isVerified,
         public readonly string $token,
+        public readonly Carbon $tokenExpiredAt,
     ) {
     }
 
@@ -28,6 +30,7 @@ class AuthenticatedUser implements Authenticatable
             avatar: $user->getAvatar(),
             isVerified: $user->isVerified ?? false,
             token: $user->token,
+            tokenExpiredAt: Carbon::now()->addSeconds($user->expiresIn ?? 0),
         );
     }
 

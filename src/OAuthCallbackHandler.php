@@ -38,7 +38,7 @@ trait OAuthCallbackHandler
         Cache::put(
             "user:{$dicodingUser->getId()}",
             $authenticatedUser,
-            Carbon::now()->addSeconds($dicodingUser->expiresIn)
+            $authenticatedUser->tokenExpiredAt
         );
 
         Auth::guard('dicoding')->login($authenticatedUser);
