@@ -33,12 +33,14 @@ trait OAuthCallbackHandler
 
     private function setUserAsAuthed(User $dicodingUser): void
     {
+        $authenticatedUser = AuthenticatedUser::fromOauthUser($dicodingUser);
+
         Cache::put(
             "user:{$dicodingUser->getId()}",
-            $dicodingUser,
+            $authenticatedUser,
             Carbon::now()->addSeconds($dicodingUser->expiresIn)
         );
 
-        Auth::guard('dicoding')->login(AuthenticatedUser::fromOauthUser($dicodingUser));
+        Auth::guard('dicoding')->login($authenticatedUser);
     }
 }
