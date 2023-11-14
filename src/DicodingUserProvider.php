@@ -11,7 +11,7 @@ class DicodingUserProvider implements UserProvider
 {
     public function retrieveById($identifier)
     {
-        return Cache::get("user:$identifier");
+        return Cache::get(AuthenticatedUser::cacheKey($identifier));
     }
 
     public function retrieveByToken($identifier, $token)
@@ -31,6 +31,6 @@ class DicodingUserProvider implements UserProvider
 
     public function validateCredentials(Authenticatable $user, array $credentials): bool
     {
-        return Cache::has('user:' . $user->getAuthIdentifier());
+        return Cache::has(AuthenticatedUser::cacheKey($user->getAuthIdentifier()));
     }
 }

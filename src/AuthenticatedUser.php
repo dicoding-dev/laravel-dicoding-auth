@@ -34,6 +34,11 @@ class AuthenticatedUser implements Authenticatable
         );
     }
 
+    public static function cacheKey(int $userId): string
+    {
+        return "user:$userId";
+    }
+
     public function getAuthIdentifierName(): string
     {
         return 'id';

@@ -36,7 +36,7 @@ trait OAuthCallbackHandler
         $authenticatedUser = AuthenticatedUser::fromOauthUser($dicodingUser);
 
         Cache::put(
-            "user:{$dicodingUser->getId()}",
+            AuthenticatedUser::cacheKey($dicodingUser->getId()),
             $authenticatedUser,
             $authenticatedUser->tokenExpiredAt
         );
